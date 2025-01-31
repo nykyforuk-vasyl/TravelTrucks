@@ -32,6 +32,7 @@ export default {
           "18px",
           { lineHeight: "28px", letterSpacing: "-0.02em", fontWeight: 500 },
         ],
+        custom: ["20px", { lineHeight: "1.2", fontWeight: 600 }],
         xl: ["24px", { lineHeight: "32px", fontWeight: 600 }],
         "2xl": [
           "30px",

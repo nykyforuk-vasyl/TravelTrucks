@@ -5,7 +5,9 @@ const CatalogPages = () => {
   return (
     <div>
       <HeaderSection />
-      <Sidebar />
+      <div className="mt-12">
+        <Sidebar />
+      </div>
     </div>
   );
 };

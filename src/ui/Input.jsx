@@ -1,8 +1,9 @@
 import { useController } from "react-hook-form";
 
-const InputField = ({
+const Input = ({
   control,
   name,
+  className,
   type = "text",
   placeholder,
   ...props
@@ -19,13 +20,13 @@ const InputField = ({
         type={type}
         placeholder={placeholder}
         {...props}
-        className={`w-full rounded-lg border p-3 focus:outline-none focus:ring-2 ${fieldError ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"}`}
+        className={`w-full border p-3 focus:outline-none focus:ring-2 ${className} ${fieldError ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"}`}
       />
       {fieldError && (
-        <p className="mt-2 text-sm text-red-500">{fieldError.message}</p>
+        <p className="text-red-500 mt-2 text-sm">{fieldError.message}</p>
       )}
     </div>
   );
 };
 
-export default InputField;
+export default Input;

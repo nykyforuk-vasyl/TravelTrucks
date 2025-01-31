@@ -1,56 +1,79 @@
+import { useForm } from "react-hook-form";
+import VehicleEquipment from "../../SidebarComponent/VehicleEquipment";
+import VehicleType from "../../SidebarComponent/VehicleType";
+import SidebarLocation from "../../SidebarComponent/SidebarLocation";
+
 const SidebarSection = () => {
+  const { control, handleSubmit } = useForm({});
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    <aside className="w-72 rounded-lg bg-white p-4 shadow-lg">
-      {/* Location */}
-      <div>
-        <label className="text-sm font-semibold text-gray-500">Location</label>
-        <div className="mt-1 flex items-center gap-2 rounded-lg bg-gray-100 p-3">
-          <span className="text-gray-700">📍</span>
-          <span className="text-gray-700">Kyiv, Ukraine</span>
-        </div>
-      </div>
+    <aside className="ml-16 w-[360px]">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label className="mb-2 block text-darkGrey">Location</label>
 
-      {/* Filters */}
-      <h3 className="mt-4 text-lg font-semibold">Filters</h3>
+        <SidebarLocation control={control} />
 
-      {/* Vehicle Equipment */}
-      <div className="mt-3">
-        <h4 className="text-md font-semibold text-gray-700">
-          Vehicle equipment
-        </h4>
-        <div className="mt-2 grid grid-cols-3 gap-3">
-          {["AC", "Automatic", "Kitchen", "TV", "Bathroom"].map((item) => (
+        {/* Фільтр за особливостями */}
+        <label className="mb-8 mt-4 block text-darkGrey">Filters</label>
+
+        <h3 className="text-custom mb-2 mt-4 block text-black">
+          Vehicle Equipment
+        </h3>
+        <div className="my-6 h-px w-full bg-gray-300"></div>
+
+        <VehicleEquipment />
+
+        {/* <div className="grid grid-cols-3 gap-2">
+          {vehicleFeatures.map((feature) => (
             <button
-              key={item}
-              className="flex flex-col items-center justify-center rounded-lg border border-gray-300 p-3 hover:border-red-500 active:border-red-500"
+              key={feature}
+              type="button"
+              className={`rounded-lg border px-4 py-2 ${
+                filters.vehicleFeatures.includes(feature)
+                  ? "border-red-500 text-red-500"
+                  : "border-gray-300"
+              }`}
+              onClick={() => dispatch(toggleFeature(feature))}
             >
-              <span className="text-xl">🔥</span>
-              <span className="text-sm text-gray-700">{item}</span>
+              {feature}
             </button>
           ))}
-        </div>
-      </div>
+        </div> */}
 
-      {/* Vehicle Type */}
-      <div className="mt-5">
-        <h4 className="text-md font-semibold text-gray-700">Vehicle type</h4>
-        <div className="mt-2 grid grid-cols-3 gap-3">
-          {["Van", "Fully Integrated", "Alcove"].map((item) => (
+        <h3 className="text-custom mb-2 mt-4 block text-black">Vehicle Type</h3>
+        <div className="my-6 h-px w-full bg-gray-300"></div>
+
+        <VehicleType />
+
+        {/* <div className="grid grid-cols-3 gap-2">
+          {vehicleTypes.map((type) => (
             <button
-              key={item}
-              className="flex flex-col items-center justify-center rounded-lg border border-gray-300 p-3 hover:border-red-500 active:border-red-500"
+              key={type}
+              type="button"
+              className={`rounded-lg border px-4 py-2 ${
+                filters.vehicleType.includes(type)
+                  ? "border-red-500 text-red-500"
+                  : "border-gray-300"
+              }`}
+              onClick={() => dispatch(toggleVehicleType(type))}
             >
-              <span className="text-xl">🚐</span>
-              <span className="text-sm text-gray-700">{item}</span>
+              {type}
             </button>
           ))}
-        </div>
-      </div>
+        </div> */}
 
-      {/* Search Button */}
-      <button className="mt-5 w-full rounded-full bg-red-500 py-3 text-md font-semibold text-white hover:bg-red-600">
-        Search
-      </button>
+        {/* Кнопка пошуку */}
+        <button
+          type="submit"
+          className="mb-16 rounded-full bg-red px-[56px] py-4 text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
+        >
+          Search
+        </button>
+      </form>
     </aside>
   );
 };
