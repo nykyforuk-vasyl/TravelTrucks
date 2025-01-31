@@ -1,4 +1,4 @@
-import ReservationForm from "../ReservationForm/ReservationForm";
+import ReservationForm from "./ReservationForm/ReservationForm";
 
 const CampervanBookingForm = () => {
   return (

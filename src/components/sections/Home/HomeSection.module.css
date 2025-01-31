@@ -1,0 +1,17 @@
+.hero {
+    background-image:
+        url(/public/images/Welcome/Picture.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: calc(100vh - 64px);
+}
+
+@media screen and (-webkit-min-device-pixel-tatio: 2),
+(min-resolution: 2dppx),
+(min-resolution: 192dpi) {
+    .hero {
+        background-image:
+            url(/public/images/Welcome/Picture-2x.jpg);
+    }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "TravelTrucks",
+  "name": "traveltrucks",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,6 +14,8 @@
     "@reduxjs/toolkit": "^2.5.1",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
+    "clsx": "^2.1.1",
+    "lazy": "^1.0.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.2",
@@ -27,6 +29,7 @@
     "@eslint/js": "^9.17.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "eslint": "^9.17.0",
     "eslint-plugin-react": "^7.37.2",

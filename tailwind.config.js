@@ -3,53 +3,47 @@ export default {
   theme: {
     extend: {
       colors: {
-        black: "#2F2F2F",
-        darkGrey: "#323F47",
-        grey: "#F0EFF4",
-        "grey-selector": "#BCBCBC",
-        green: "#9BE1A0",
-        "green-selector": "#87D28D",
-        error: "#EF5050",
+        black: " #101828",
+        darkGrey: "#475467",
+        grey: "#6c717b",
+        red: "#e44848",
+        darkRed: "#d84343",
+        yellow: "#ffc531",
+        lightGrey: "#dadde1",
+        silver: "#f2f4f7",
+        darkWhite: "#f7f7f7",
+        white: "#fff",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
       },
       fontSize: {
-        extrasm: [
-          "8px",
-          { lineHeight: "8px", fontWeight: 700, letterSpacing: "-0.08px" },
+        // Додаємо кастомні розміри шрифтів з lineHeight, letterSpacing і fontWeight
+        xs: [
+          "12px",
+          { lineHeight: "18px", letterSpacing: "-0.02em", fontWeight: 400 },
         ],
-        xs: ["10px", { lineHeight: "10px", fontWeight: 400 }],
-        sm: ["12px", { lineHeight: "14px" }],
-        base: ["14px", { lineHeight: "18px" }],
-        ms: ["15px", { lineHeight: "22.4px", fontWeight: 700 }],
-        md: ["16px", { lineHeight: "24px", letterSpacing: "-0.16px" }],
-        lg: ["18px", { lineHeight: "20px", letterSpacing: "-0.18px" }],
-        xl: [
-          "20px",
-          { fontWeight: 700, lineHeight: "24px", letterSpacing: "-0.2px" },
+        sm: [
+          "14px",
+          { lineHeight: "20px", letterSpacing: "-0.02em", fontWeight: 400 },
         ],
+        base: ["16px", { lineHeight: "24px", fontWeight: 500 }],
+        lg: [
+          "18px",
+          { lineHeight: "28px", letterSpacing: "-0.02em", fontWeight: 500 },
+        ],
+        xl: ["24px", { lineHeight: "32px", fontWeight: 600 }],
         "2xl": [
-          "24px",
-          { fontWeight: 700, lineHeight: "24px", letterSpacing: "-0.24px" },
+          "30px",
+          { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: 600 },
         ],
         "3xl": [
-          "28px",
-          { fontWeight: 700, lineHeight: "32px", letterSpacing: "-0.28px" },
-        ],
-        "4xl": ["32px", { lineHeight: "32px", letterSpacing: "-0.32px" }],
-        "5xl": [
           "36px",
-          { lineHeight: "38px", fontWeight: 700, letterSpacing: "-0.36px" },
+          { lineHeight: "54px", letterSpacing: "-0.02em", fontWeight: 600 },
         ],
-        "6xl": [
-          "38px",
-          { lineHeight: "38px", fontWeight: 700, letterSpacing: "-0.38px" },
-        ],
-        "7xl": [
-          "64px",
-          { lineHeight: "70px", fontWeight: 700, letterSpacing: "-0.64px" },
-        ],
-        "8xl": [
-          "80px",
-          { lineHeight: "76px", fontWeight: 700, letterSpacing: "-0.8px" },
+        "4xl": [
+          "48px",
+          { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: 600 },
         ],
       },
     },

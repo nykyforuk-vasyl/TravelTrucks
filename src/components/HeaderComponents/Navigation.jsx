@@ -6,17 +6,15 @@ const Navigation = () => {
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.activeLink);
   };
-
   return (
-    <header className={s.header}>
-      <NavLink className={buildLinkClass} to="/features">
-        Features
+    <nav className="absolute left-1/2 flex -translate-x-1/2 gap-6">
+      <NavLink className={buildLinkClass} to="/">
+        Home
       </NavLink>
-      <NavLink className={buildLinkClass} to="/reviews">
-        Reviews
+      <NavLink className={buildLinkClass} to="/catalog">
+        Catalog
       </NavLink>
-      <div className="my-4 h-px w-full bg-gray-300"></div>
-    </header>
+    </nav>
   );
 };
 
