@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const FeatureReviewNav = () => {
   return (
-    <header className="">
+    <section className="">
       <NavLink className="first-line:" to="/features">
         Features
       </NavLink>
@@ -11,7 +11,7 @@ const FeatureReviewNav = () => {
         Reviews
       </NavLink>
       <div className="my-4 h-px w-full bg-gray-300"></div>
-    </header>
+    </section>
   );
 };
 

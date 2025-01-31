@@ -3,10 +3,10 @@ import CampervanBookingForm from "../../forms/CampervanBookingForm";
 
 const FeatureSection = () => {
   return (
-    <div>
+    <section>
       <CamperFeatures />
       <CampervanBookingForm />
-    </div>
+    </section>
   );
 };
 

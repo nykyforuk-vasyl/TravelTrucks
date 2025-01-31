@@ -4,7 +4,7 @@ const HomeButton = () => {
   return (
     <div>
       <Link
-        className="bg-red hover:bg-darkRed active:bg-darkRed rounded-full px-[48px] py-4 text-base text-white transition-colors"
+        className="rounded-full bg-red px-[48px] py-4 text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
         to="/catalog"
       >
         View Now
