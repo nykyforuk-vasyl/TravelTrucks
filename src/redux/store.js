@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { contactsReducer } from "./contacts/slice";
+import { campersReducer } from "./campers/slice";
 import { filtersReducer } from "./filters/slice";
 
 import {
@@ -26,7 +26,7 @@ const persistAuthReducer = persistReducer(persistConfig, authSlice);
 
 export const store = configureStore({
   reducer: {
-    contacts: contactsReducer,
+    contacts: campersReducer,
     filters: filtersReducer,
     auth: persistAuthReducer,
   },
