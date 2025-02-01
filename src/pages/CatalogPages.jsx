@@ -1,5 +1,6 @@
 import HeaderSection from "../components/sections/Headers/HeaderSection.jsx";
 import Sidebar from "../components/sections/Sidebar/SidebarSection.jsx";
+import ModalLoader from "../components/ModalLoader/ModalLoader.jsx";
 
 const CatalogPages = () => {
   return (
@@ -7,6 +8,7 @@ const CatalogPages = () => {
       <HeaderSection />
       <div className="mt-12">
         <Sidebar />
+        <ModalLoader />
       </div>
     </div>
   );

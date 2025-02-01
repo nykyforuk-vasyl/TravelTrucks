@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import HomePage from "./pages/HomePage.jsx";
+import ModalLoader from "./components/ModalLoader/ModalLoader.jsx";
 
 // import Navigation from "./components/sections/Headers/Navigation.jsx";
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
@@ -16,7 +17,7 @@ const CatalogDetailsPage = lazy(() => import("./pages/CatalogDetailsPage.jsx"));
 function App() {
   return (
     <div>
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Suspense fallback={<ModalLoader />}>
         {/* <Navigation /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
