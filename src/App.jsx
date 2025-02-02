@@ -17,7 +17,7 @@ const CatalogDetailsPage = lazy(() => import("./pages/CatalogDetailsPage.jsx"));
 function App() {
   return (
     <div>
-      <Suspense fallback={<ModalLoader />}>
+      <Suspense fallback={<ModalLoader text={"TravelTrucks..."} />}>
         {/* <Navigation /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />

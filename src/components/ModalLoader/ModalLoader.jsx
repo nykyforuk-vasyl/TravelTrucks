@@ -1,10 +1,10 @@
 import { Modal as ResponsiveModal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 
-import Loader from "./Loader/Loader";
+import Loader from "../Loader/Loader";
 import s from "./mainModalStyles.module.css";
 
-const ModalLoader = () => {
+const ModalLoader = ({ text }) => {
   return (
     <ResponsiveModal
       open={true}
@@ -17,7 +17,7 @@ const ModalLoader = () => {
         modal: s.mainModalContent,
       }}
     >
-      <Loader />
+      <Loader text={text} />
     </ResponsiveModal>
   );
 };

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import VehicleEquipment from "../../SidebarComponent/VehicleEquipment";
 import VehicleType from "../../SidebarComponent/VehicleType";
 import SidebarLocation from "../../SidebarComponent/SidebarLocation";
+import s from "./SidebarSection.module.css";
 
 const SidebarSection = () => {
   const { control, handleSubmit } = useForm({});
@@ -11,7 +12,7 @@ const SidebarSection = () => {
   };
 
   return (
-    <aside className="ml-16 w-[360px]">
+    <aside className={`${s.customScrollbar} ml-16 w-[360px]`}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label className="mb-2 block text-darkGrey">Location</label>
 
@@ -20,7 +21,7 @@ const SidebarSection = () => {
         {/* Фільтр за особливостями */}
         <label className="mb-8 mt-4 block text-darkGrey">Filters</label>
 
-        <h3 className="text-custom mb-2 mt-4 block text-black">
+        <h3 className="mb-2 mt-4 block text-custom text-black">
           Vehicle Equipment
         </h3>
         <div className="my-6 h-px w-full bg-gray-300"></div>
@@ -44,7 +45,7 @@ const SidebarSection = () => {
           ))}
         </div> */}
 
-        <h3 className="text-custom mb-2 mt-4 block text-black">Vehicle Type</h3>
+        <h3 className="mb-2 mt-4 block text-custom text-black">Vehicle Type</h3>
         <div className="my-6 h-px w-full bg-gray-300"></div>
 
         <VehicleType />

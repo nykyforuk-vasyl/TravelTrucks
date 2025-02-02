@@ -1,11 +1,5 @@
 // import { createSlice } from "@reduxjs/toolkit";
 
-// const initialState = {
-//   location: "",
-//   vehicleFeatures: [],
-//   vehicleType: [],
-// };
-
 // const filtersSlice = createSlice({
 //   name: "filters",
 //   initialState,
