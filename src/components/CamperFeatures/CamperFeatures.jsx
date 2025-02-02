@@ -1,31 +1,60 @@
-import FeaturesIcons from "./FeaturesIcons";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import {
+  selectByIdCamper,
+  selectIsLoading,
+  selectIsError,
+} from "../../redux/campers/selectors.js";
+import { useEffect } from "react";
+import { fetchCampersById } from "../../redux/campers/operations.js";
+import ModalLoader from "../../components/ModalLoader/ModalLoader.jsx";
 
 const CamperFeatures = () => {
+  const { id } = useParams();
+  const cardIdCamper = useSelector(selectByIdCamper);
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectIsError);
+
+  useEffect(() => {
+    if (!cardIdCamper || Object.keys(cardIdCamper).length === 0) {
+      dispatch(fetchCampersById(id));
+    }
+  }, [dispatch, id, cardIdCamper]);
+
+  if (isLoading) {
+    return <ModalLoader text={"Loaders..."} />;
+  }
+
+  if (error) {
+    return <ModalLoader text={error} />;
+  }
+
+  const { form, length, width, height, tank, consumption } = cardIdCamper;
+
   return (
     <div>
-      <FeaturesIcons />
-
-      <h2 className="">Vehicle details</h2>
+      <h2 className="text-custom">Vehicle details</h2>
       <div className="my-4 h-px w-full bg-gray-300"></div>
 
-      <ul className="">
+      <ul className="font-semibold">
         <li className="flex justify-between">
-          <span className="">Form:</span> <span>Panel truck</span>
+          <span className="">Form:</span> <span>{form}</span>
         </li>
         <li className="flex justify-between">
-          <span className="">Length:</span> <span>5.4 m</span>
+          <span className="">Length:</span> <span>{length}</span>
         </li>
         <li className="flex justify-between">
-          <span className="">Width:</span> <span>2.01 m</span>
+          <span className="">Width:</span> <span>{width}</span>
         </li>
         <li className="flex justify-between">
-          <span className="">Height:</span> <span>2.05 m</span>
+          <span className="">Height:</span> <span>{height}</span>
         </li>
         <li className="flex justify-between">
-          <span className="">Tank:</span> <span>132 l</span>
+          <span className="">Tank:</span> <span>{tank}</span>
         </li>
         <li className="flex justify-between">
-          <span className="">Consumption:</span> <span>12.4l/100km</span>
+          <span className="">Consumption:</span> <span>{consumption}</span>
         </li>
       </ul>
     </div>

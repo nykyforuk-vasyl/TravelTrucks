@@ -9,3 +9,9 @@ export const vehicleFeatures = [
   { text: "Refrigerator", icon: "solar_fridge-outline" },
   { text: "Microwave", icon: "lucide_microwave" },
 ];
+
+export const vehicleTypes = [
+  { id: 1, text: "Van", icon: "bi_grid-1x22x" },
+  { id: 2, text: "Fully Integrated", icon: "bi_grid" },
+  { id: 3, text: "Alcove", icon: "bi_grid-3x3-gap" },
+];

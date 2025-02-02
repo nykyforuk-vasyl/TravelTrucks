@@ -1,11 +1,11 @@
-import CamperFeatures from "../../CamperFeatures/CamperFeatures";
-import CampervanBookingForm from "../../forms/CampervanBookingForm";
+// import CamperFeatures from "../../CamperFeatures/CamperFeatures";
+// import CampervanBookingForm from "../../forms/CampervanBookingForm";
 
 const FeatureSection = () => {
   return (
     <section>
-      <CamperFeatures />
-      <CampervanBookingForm />
+      {/* <CamperFeatures />
+      <CampervanBookingForm /> */}
     </section>
   );
 };

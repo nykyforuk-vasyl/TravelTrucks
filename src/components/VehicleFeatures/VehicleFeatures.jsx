@@ -13,18 +13,18 @@ const VehicleFeatures = ({ features }) => {
           ].includes(feature.icon);
 
           return (
-            <div
+            <li
               key={feature.text}
-              className="flex items-center gap-2 rounded-full bg-silver px-[18px] py-3 text-base text-black"
+              className="flex items-center gap-2 rounded-full bg-[#e8e8e9] px-[18px] py-3 text-base font-semibold text-black"
             >
               <Icon
                 id={feature.icon}
                 w={20}
                 h={20}
-                className={`fill-black ${isException ? "fill-white stroke-black" : "fill-black"}`}
+                className={`fill-black ${isException ? "fill-silver stroke-black" : ""}`}
               />
               {feature.text}
-            </div>
+            </li>
           );
         }
         return null; // Не відображати, якщо значення false

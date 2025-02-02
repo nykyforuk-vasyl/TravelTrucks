@@ -10,8 +10,10 @@ const CatalogPages = () => {
       <HeaderSection />
       <div className="mt-12 flex">
         <Sidebar />
-        <CardsCampers />
-        <CatalogBatton />
+        <div className="mb-[52px] flex flex-col items-center">
+          <CardsCampers />
+          <CatalogBatton />
+        </div>
         {/* <ModalLoader text={"Thhff"} /> */}
       </div>
     </div>

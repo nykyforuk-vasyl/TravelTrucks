@@ -41,6 +41,7 @@ const ReservationForm = () => {
         name="name"
         placeholder="Name*"
         error={errors.name}
+        className="rounded-[10px] bg-darkWhite"
       />
 
       <Input
@@ -49,6 +50,7 @@ const ReservationForm = () => {
         type="email"
         placeholder="Email*"
         error={errors.email}
+        className="rounded-[10px] bg-darkWhite"
       />
 
       <Input
@@ -57,19 +59,20 @@ const ReservationForm = () => {
         type="date"
         placeholder="Booking date*"
         error={errors.bookingDate}
+        className="rounded-[10px] bg-darkWhite"
       />
 
       <div className="mb-4">
         <textarea
           {...register("comment")}
           placeholder="Comment"
-          className="w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 bg-darkWhite p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full rounded-lg bg-red-500 py-3 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+        className="bg-red-500 hover:bg-red-600 focus:ring-red-500 w-full rounded-lg py-3 text-white focus:outline-none focus:ring-2"
       >
         Send
       </button>

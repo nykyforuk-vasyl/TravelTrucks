@@ -1,5 +1,6 @@
 import Icon from "../../ui/Icon";
 import VehicleFeatures from "../VehicleFeatures/VehicleFeatures";
+import { Link } from "react-router-dom";
 
 const CamperCard = ({
   id,
@@ -26,7 +27,7 @@ const CamperCard = ({
       className="flex w-[888px] gap-6 rounded-[20px] border border-lightGrey p-6"
     >
       <img
-        src={gallery[0].thumb}
+        src={gallery?.[0]?.thumb || "default-Picture.jpg"}
         alt={name}
         className="h-[320px] w-[292px] rounded-[10px] object-cover"
       />
@@ -43,7 +44,7 @@ const CamperCard = ({
         <div className="mb-6 flex items-center">
           <Icon id="star" w={18} h={18} className="mr-1 fill-yellow" />
           <p className="mr-4 text-base font-normal underline">
-            {rating}({reviews[1].reviewer_rating} Reviews)
+            {rating}({reviews?.[1]?.reviewer_rating || "No"} Reviews)
           </p>
           <Icon id="map" w={16} h={16} className="mr-1 fill-black" />
           <p className="mr-4 text-base font-normal">{location}</p>
@@ -71,12 +72,12 @@ const CamperCard = ({
           ]}
         />
 
-        <button
-          type="submit"
+        <Link
+          to={`/catalog/${id}`}
           className="rounded-full bg-red px-10 py-4 text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
         >
           Show more
-        </button>
+        </Link>
       </div>
     </li>
   );

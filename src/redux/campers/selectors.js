@@ -5,7 +5,10 @@
 //   selectTypeFilter,
 // } from "../filters/selectors";
 
-export const selectTracks = (state) => state.campers.items;
+export const selectCampers = (state) => state.campers.campersItem;
+export const selectByIdCamper = (state) => state.campers.camper || {};
+// export const selectIsCamperArr = (state) => state.campers.items;
+
 export const selectIsLoading = (state) => state.campers.loading;
 export const selectIsError = (state) => state.campers.error;
 

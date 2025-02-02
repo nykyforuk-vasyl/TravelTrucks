@@ -12,7 +12,9 @@ const SidebarSection = () => {
   };
 
   return (
-    <aside className={`${s.customScrollbar} ml-16 w-[360px]`}>
+    <aside
+      className={`${s.customScrollbar} ml-16 w-[362px] border-t px-[2px] pt-2`}
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <label className="mb-2 block text-darkGrey">Location</label>
 
