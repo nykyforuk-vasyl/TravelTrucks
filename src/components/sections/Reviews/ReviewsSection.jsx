@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import CampervanBookingForm from "../../forms/CampervanBookingForm.jsx";
-import CamperReviews from "../../CamperFeatures/FeatureDetails.jsx";
+import CamperReviews from "../../CamperReviews/CamperReviews.jsx";
 
 const ReviewsSection = () => {
   const { id } = useParams();
