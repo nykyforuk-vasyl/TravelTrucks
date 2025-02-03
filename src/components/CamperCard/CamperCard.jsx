@@ -22,7 +22,7 @@ const CamperCard = ({
   microwave,
 }) => {
   return (
-    <li
+    <div
       key={id}
       className="flex w-[888px] gap-6 rounded-[20px] border border-lightGrey p-6"
     >
@@ -79,7 +79,7 @@ const CamperCard = ({
           Show more
         </Link>
       </div>
-    </li>
+    </div>
   );
 };
 

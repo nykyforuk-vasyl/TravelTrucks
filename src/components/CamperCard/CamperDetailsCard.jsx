@@ -8,15 +8,6 @@ const CamperDetailsCard = ({
   reviews,
   location,
   description,
-  AC,
-  gas,
-  kitchen,
-  TV,
-  bathroom,
-  water,
-  radio,
-  refrigerator,
-  microwave,
 }) => {
   return (
     <div className="">
@@ -45,7 +36,7 @@ const CamperDetailsCard = ({
           ))}
         </div>
 
-        <p className="mb-6 font-normal text-darkGrey">{description}</p>
+        <p className="mb-[60px] font-normal text-darkGrey">{description}</p>
       </div>
     </div>
   );

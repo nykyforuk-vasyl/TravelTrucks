@@ -10,7 +10,7 @@ const VehicleType = () => {
           <button
             key={type.id}
             type="button"
-            className="flex h-24 w-28 flex-col items-center justify-center gap-2 rounded-[12px] border text-black"
+            className="flex h-24 w-28 flex-col items-center justify-center gap-2 rounded-[12px] border text-black focus:border-red"
           >
             <Icon id={type.icon} w={32} h={32} className="fill-black" />
             {type.text}

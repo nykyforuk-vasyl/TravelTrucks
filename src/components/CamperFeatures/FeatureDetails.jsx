@@ -45,7 +45,7 @@ const FeatureDetails = () => {
   } = cardIdCamper;
 
   return (
-    <div className="rounded-[10px] bg-darkWhite p-[52px] pt-11">
+    <div className="flex-1 rounded-[10px] bg-darkWhite p-[52px] pt-11">
       <ul className="mb-[100px] flex flex-wrap">
         <VehicleFeatures
           features={[
@@ -66,7 +66,7 @@ const FeatureDetails = () => {
         />
       </ul>
 
-      <CamperFeatures />
+      <CamperFeatures cardIdCamper={cardIdCamper} />
     </div>
   );
 };

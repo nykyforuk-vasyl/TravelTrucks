@@ -1,14 +1,23 @@
 import { NavLink } from "react-router-dom";
-// import clsx from "clsx";
 
 const FeatureReviewNav = () => {
   return (
-    <section className="] mb-11">
+    <section className="mb-11">
       <div className="flex gap-[10px] text-custom">
-        <NavLink className="first-line:" to="/features">
+        <NavLink
+          to="features"
+          className={({ isActive }) =>
+            isActive ? "text-red-500 border-red-500 border-b-2" : ""
+          }
+        >
           Features
         </NavLink>
-        <NavLink className="" to="/reviews">
+        <NavLink
+          to="reviews"
+          className={({ isActive }) =>
+            isActive ? "text-red-500 border-red-500 border-b-2" : ""
+          }
+        >
           Reviews
         </NavLink>
       </div>

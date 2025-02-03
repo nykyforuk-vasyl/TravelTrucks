@@ -15,7 +15,7 @@ const VehicleEquipment = () => {
           <button
             key={feature.text}
             type="button"
-            className="flex h-24 w-28 flex-col items-center justify-center gap-2 rounded-[12px] border text-black"
+            className="flex h-24 w-28 flex-col items-center justify-center gap-2 rounded-[12px] border text-black focus:border-red"
           >
             <Icon
               id={feature.icon}

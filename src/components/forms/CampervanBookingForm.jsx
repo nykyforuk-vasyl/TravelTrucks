@@ -2,9 +2,11 @@ import ReservationForm from "./ReservationForm/ReservationForm";
 
 const CampervanBookingForm = () => {
   return (
-    <div className="w-[641px] rounded-[10px] border px-[57px] py-11">
-      <h2 className="mb-4 text-2xl font-bold">Book your campervan now</h2>
-      <p className="mb-6 text-sm text-gray-500">
+    <div className="flex-1 rounded-[10px] border p-[57px] pt-11">
+      <h2 className="mb-4 text-custom font-bold text-black">
+        Book your campervan now
+      </h2>
+      <p className="mb-6 text-base font-normal text-grey">
         Stay connected! We are always ready to help you.
       </p>
       <ReservationForm />

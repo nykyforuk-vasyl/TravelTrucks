@@ -1,35 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import {
-  selectByIdCamper,
-  selectIsLoading,
-  selectIsError,
-} from "../../redux/campers/selectors.js";
-import { useEffect } from "react";
-import { fetchCampersById } from "../../redux/campers/operations.js";
-import ModalLoader from "../../components/ModalLoader/ModalLoader.jsx";
-
-const CamperFeatures = () => {
-  const { id } = useParams();
-  const cardIdCamper = useSelector(selectByIdCamper);
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectIsError);
-
-  useEffect(() => {
-    if (!cardIdCamper || Object.keys(cardIdCamper).length === 0) {
-      dispatch(fetchCampersById(id));
-    }
-  }, [dispatch, id, cardIdCamper]);
-
-  if (isLoading) {
-    return <ModalLoader text={"Loaders..."} />;
-  }
-
-  if (error) {
-    return <ModalLoader text={error} />;
-  }
-
+const CamperFeatures = ({ cardIdCamper }) => {
   const { form, length, width, height, tank, consumption } = cardIdCamper;
 
   return (
@@ -37,7 +6,7 @@ const CamperFeatures = () => {
       <h2 className="text-custom">Vehicle details</h2>
       <div className="my-4 h-px w-full bg-gray-300"></div>
 
-      <ul className="font-semibold">
+      <ul className="flex flex-col gap-4 font-semibold">
         <li className="flex justify-between">
           <span className="">Form:</span> <span>{form}</span>
         </li>

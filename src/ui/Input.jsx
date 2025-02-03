@@ -20,10 +20,10 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         {...props}
-        className={`w-full border p-3 focus:outline-none focus:ring-2 ${className} ${fieldError ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"}`}
+        className={`focus:border-1 w-full rounded-[12px] border border-silver p-[18px] text-base placeholder:text-grey focus:outline-none ${className} ${fieldError ? "border-red focus:ring-red" : "focus:border-darkWhite"}`}
       />
       {fieldError && (
-        <p className="text-red-500 mt-2 text-sm">{fieldError.message}</p>
+        <p className="mt-2 text-sm text-red">{fieldError.message}</p>
       )}
     </div>
   );

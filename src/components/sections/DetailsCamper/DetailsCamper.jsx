@@ -8,12 +8,7 @@ import {
 import { useEffect } from "react";
 import { fetchCampersById } from "../../../redux/campers/operations.js";
 import CamperDetailsCard from "../../CamperCard/CamperDetailsCard.jsx";
-import FeatureDetails from "../../CamperFeatures/FeatureDetails.jsx";
 import ModalLoader from "../../ModalLoader/ModalLoader.jsx";
-import CampervanBookingForm from "../../forms/CampervanBookingForm.jsx";
-import FeatureReviewNav from "../FeatureReviewNav/FeatureReviewNav.jsx";
-
-// import { Outlet } from "react-router-dom";
 
 const DetailsCamper = () => {
   const { id } = useParams();
@@ -43,14 +38,6 @@ const DetailsCamper = () => {
       <div>
         <CamperDetailsCard {...cardIdCamper} />
       </div>
-
-      <FeatureReviewNav />
-
-      <div className="flex gap-10">
-        <FeatureDetails {...cardIdCamper} />
-        <CampervanBookingForm />
-      </div>
-      {/* <Outlet /> */}
     </div>
   );
 };

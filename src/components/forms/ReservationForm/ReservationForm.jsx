@@ -1,9 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-// import { useNavigate } from "react-router-dom";
-
-// import { login } from "@/redux/auth/operations";
-// import { useAppDispatch } from "@/redux/hooks";
 
 import validationSchema from "./ValidationSchema";
 import Input from "../../../ui/Input";
@@ -16,9 +12,8 @@ const ReservationForm = () => {
     control,
   } = useForm({
     resolver: yupResolver(validationSchema),
+    mode: "onChange",
   });
-  // const dispatch = useAppDispatch();
-  // const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log("Форма відправлена:", data);
@@ -41,7 +36,7 @@ const ReservationForm = () => {
         name="name"
         placeholder="Name*"
         error={errors.name}
-        className="rounded-[10px] bg-darkWhite"
+        className="rounded-3 bg-darkWhite"
       />
 
       <Input
@@ -50,7 +45,7 @@ const ReservationForm = () => {
         type="email"
         placeholder="Email*"
         error={errors.email}
-        className="rounded-[10px] bg-darkWhite"
+        className="rounded-3 bg-darkWhite"
       />
 
       <Input
@@ -59,23 +54,28 @@ const ReservationForm = () => {
         type="date"
         placeholder="Booking date*"
         error={errors.bookingDate}
-        className="rounded-[10px] bg-darkWhite"
+        className="rounded-3 bg-darkWhite"
       />
 
       <div className="mb-4">
         <textarea
           {...register("comment")}
           placeholder="Comment"
-          className="w-full rounded-lg border border-gray-300 bg-darkWhite p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className={`h-[118px] w-full rounded-[10px] bg-darkWhite p-[18px] placeholder:text-grey focus:outline-none ${errors.comment ? "border-red focus:ring-red" : "focus:border-darkWhite"}`}
         />
+        {errors.comment && (
+          <p className="mt-2 text-sm text-red">{errors.comment.message}</p>
+        )}
       </div>
 
-      <button
-        type="submit"
-        className="bg-red-500 hover:bg-red-600 focus:ring-red-500 w-full rounded-lg py-3 text-white focus:outline-none focus:ring-2"
-      >
-        Send
-      </button>
+      <div className="flex justify-center">
+        <button
+          type="submit"
+          className="my-auto mt-2 rounded-full bg-red px-[63px] py-4 text-base text-white hover:bg-darkRed focus:outline-none focus:ring-darkRed"
+        >
+          Send
+        </button>
+      </div>
     </form>
   );
 };
