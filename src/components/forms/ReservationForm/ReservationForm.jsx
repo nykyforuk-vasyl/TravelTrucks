@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 import validationSchema from "./ValidationSchema";
 import Input from "../../../ui/Input";
 
@@ -17,17 +18,14 @@ const ReservationForm = () => {
 
   const onSubmit = (data) => {
     console.log("Форма відправлена:", data);
+
+    iziToast.success({
+      title: "Success",
+      message: "Your reservation has been successfully submitted!",
+      position: "topRight",
+      timeout: 3000,
+    });
   };
-
-  // const onSubmit = async (data) => {
-  //   const result = await dispatch(login(data));
-
-  //   if (result.meta.requestStatus === "fulfilled") {
-  //     navigate("/tracker");
-  //   } else {
-  //     console.error("Registration failed", result.payload);
-  //   }
-  // };
 
   return (
     <form className="" onSubmit={handleSubmit(onSubmit)}>

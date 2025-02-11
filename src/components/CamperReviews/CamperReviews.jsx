@@ -47,9 +47,18 @@ const CamperReviews = ({ camperId }) => {
                 </p>
 
                 <ul className="flex">
-                  {Array.from({ length: reviewer_rating }).map((_, index) => (
+                  {Array.from({ length: 5 }).map((_, index) => (
                     <li key={index}>
-                      <Icon id="star" w={16} h={15} className="fill-yellow" />
+                      <Icon
+                        id="star"
+                        w={16}
+                        h={15}
+                        className={
+                          index < reviewer_rating
+                            ? "fill-yellow"
+                            : "fill-silver"
+                        }
+                      />
                     </li>
                   ))}
                 </ul>

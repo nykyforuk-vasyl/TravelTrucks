@@ -7,7 +7,7 @@ import {
 } from "../../../redux/campers/selectors.js";
 import { useEffect } from "react";
 import { fetchCampersById } from "../../../redux/campers/operations.js";
-import CamperDetailsCard from "../../CamperCard/CamperDetailsCard.jsx";
+import CamperDetailsCard from "../../CamperDetailsCard/CamperDetailsCard.jsx";
 import ModalLoader from "../../ModalLoader/ModalLoader.jsx";
 
 const DetailsCamper = () => {

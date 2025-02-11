@@ -11,6 +11,7 @@ export const selectByIdCamper = (state) => state.campers.camper || {};
 
 export const selectIsLoading = (state) => state.campers.loading;
 export const selectIsError = (state) => state.campers.error;
+export const selectFavorites = (state) => state.campers.favorites;
 
 // export const selectFilteredTracks = createSelector(
 //   [selectTracks, selectLocationFilter, selectEquipmentFilter, selectTypeFilter],

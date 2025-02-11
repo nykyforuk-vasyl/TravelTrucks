@@ -5,6 +5,7 @@ import { fetchCampers, fetchCampersById } from "./operations";
 const initialState = {
   campersItem: [],
   camper: null,
+  favorites: [],
   // feauters: [],
   loading: false,
   error: null,
@@ -13,6 +14,16 @@ const initialState = {
 const slice = createSlice({
   name: "campers",
   initialState,
+  reducers: {
+    addFavorite: (state, action) => {
+      if (!state.favorites.includes(action.payload)) {
+        state.favorites.push(action.payload); // Додаємо до улюблених
+      }
+    },
+    removeFavorite: (state, action) => {
+      state.favorites = state.favorites.filter((id) => id !== action.payload);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.pending, (state) => {
@@ -42,4 +53,5 @@ const slice = createSlice({
   },
 });
 
+export const { addFavorite, removeFavorite } = slice.actions;
 export const campersReducer = slice.reducer;

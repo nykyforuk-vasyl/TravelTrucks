@@ -70,12 +70,14 @@ const SidebarSection = () => {
         </div> */}
 
         {/* Кнопка пошуку */}
-        <button
-          type="submit"
-          className="mb-16 rounded-full bg-red px-[56px] py-4 text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
-        >
-          Search
-        </button>
+        <div className="flex w-full justify-center">
+          <button
+            type="submit"
+            className="mb-16 rounded-full bg-red px-[56px] py-4 text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
+          >
+            Search
+          </button>
+        </div>
       </form>
     </aside>
   );

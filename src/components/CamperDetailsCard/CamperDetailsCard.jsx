@@ -1,5 +1,5 @@
 import Icon from "../../ui/Icon";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const CamperDetailsCard = ({
   name,
@@ -11,11 +11,20 @@ const CamperDetailsCard = ({
   description,
 }) => {
   const navigate = useNavigate();
+  const locationS = useLocation();
+
+  const handleGoBack = () => {
+    if (locationS.pathname.startsWith("/catalog/")) {
+      navigate("/catalog");
+    } else {
+      navigate(-1);
+    }
+  };
 
   return (
-    <div className="">
+    <div>
       <button
-        onClick={() => navigate(-1)}
+        onClick={handleGoBack}
         className="mb-6 inline-block rounded-full bg-red px-[26px] py-[6px] text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
       >
         Go Back

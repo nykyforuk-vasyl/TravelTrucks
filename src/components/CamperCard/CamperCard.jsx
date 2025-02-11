@@ -1,6 +1,9 @@
 import Icon from "../../ui/Icon";
 import VehicleFeatures from "../VehicleFeatures/VehicleFeatures";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../../redux/campers/slice";
+import { selectFavorites } from "../../redux/campers/selectors";
 
 const CamperCard = ({
   id,
@@ -21,6 +24,19 @@ const CamperCard = ({
   refrigerator,
   microwave,
 }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+
+  const isFavorited = favorites.includes(id);
+
+  const handleFavoriteToggle = () => {
+    if (isFavorited) {
+      dispatch(removeFavorite(id));
+    } else {
+      dispatch(addFavorite(id));
+    }
+  };
+
   return (
     <div
       key={id}
@@ -36,17 +52,24 @@ const CamperCard = ({
         <div className="flex items-center justify-between">
           <h3 className="text-xl text-black">{name}</h3>
           <div className="flex gap-3">
-            <p className="text-xl text-black">${price}.00</p>
-            <Icon id="heart" w={26} h={24} className="fill-black" />
+            <p className="text-xl text-black">&euro;{price.toFixed(2)}</p>
+            <button type="button" onClick={handleFavoriteToggle}>
+              <Icon
+                id="heart"
+                w={26}
+                h={24}
+                className={`fill-${isFavorited ? "red" : "black"}`}
+              />
+            </button>
           </div>
         </div>
 
         <div className="mb-6 flex items-center">
           <Icon id="star" w={18} h={18} className="mr-1 fill-yellow" />
           <p className="mr-4 text-base font-normal underline">
-            {rating}({reviews?.[1]?.reviewer_rating || "No"} Reviews)
+            {rating}({reviews?.length || 0}Reviews)
           </p>
-          <Icon id="map" w={16} h={16} className="mr-1 fill-black" />
+          <Icon id="map" w={16} h={15} className="mr-1 fill-black" />
           <p className="mr-4 text-base font-normal">{location}</p>
         </div>
 
