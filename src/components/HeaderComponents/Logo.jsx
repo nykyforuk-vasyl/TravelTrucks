@@ -2,7 +2,7 @@ import Icon from "../../ui/Icon";
 
 const Logo = () => {
   return (
-    <div className="ml-16 flex h-4 items-end gap-[0.3px]">
+    <div className="absolute left-16 flex h-4 items-end gap-[0.3px]">
       <span>
         <Icon id="icon-T" w={13} h={15} className="fill-black" />
       </span>
@@ -19,26 +19,31 @@ const Logo = () => {
         <Icon id="icon-E" w={12} h={12} className="fill-black" />
       </span>
       <span>
-        <Icon id="icon-L" w={5} h={15} className="fill-black" />
+        <Icon id="icon-L" w={6} h={15} className="fill-black" />
       </span>
 
       <span>
-        <Icon id="icon-T" w={14} h={15} className="fill-darkGrey" />
+        <Icon id="icon-T" w={13} h={15} className="fill-darkGrey" />
       </span>
       <span>
-        <Icon id="icon-R" w={9} h={13} className="fill-darkGrey" />
+        <Icon id="icon-R" w={8} h={12} className="fill-darkGrey" />
       </span>
       <span>
-        <Icon id="icon-U" w={12} h={13} className="fill-darkGrey" />
+        <Icon id="icon-U" w={12} h={12} className="fill-darkGrey" />
       </span>
       <span>
-        <Icon id="icon-C" w={12} h={13} className="fill-darkGrey" />
+        <Icon id="icon-C" w={12} h={12} className="fill-darkGrey" />
       </span>
       <span>
-        <Icon id="icon-K" w={13} h={15} className="fill-darkGrey" />
+        <Icon id="icon-K" w={12} h={14} className="fill-darkGrey" />
       </span>
       <span>
-        <Icon id="icon-S" w={12} h={13} className="fill-darkGrey" />
+        <Icon
+          id="icon-S"
+          w={12}
+          h={15}
+          className="absolute left-[120.7px] top-[3.3px] fill-darkGrey"
+        />
       </span>
     </div>
   );

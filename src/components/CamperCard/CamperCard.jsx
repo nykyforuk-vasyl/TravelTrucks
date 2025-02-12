@@ -58,7 +58,7 @@ const CamperCard = ({
                 id="heart"
                 w={26}
                 h={24}
-                className={`fill-${isFavorited ? "red" : "black"}`}
+                className={`transition-colors ${isFavorited ? "fill-red" : "fill-black"}`}
               />
             </button>
           </div>
