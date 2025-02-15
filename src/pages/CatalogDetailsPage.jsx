@@ -1,7 +1,6 @@
 import HeaderSection from "../components/sections/Headers/HeaderSection.jsx";
 import FeatureReviewNav from "../components/sections/FeatureReviewNav/FeatureReviewNav.jsx";
 import DetailsCamper from "../components/sections/DetailsCamper/DetailsCamper.jsx";
-import { CamperProvider } from "../ui/CamperContext";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,24 +43,20 @@ const CatalogDetailsPage = () => {
   }
 
   return (
-    <CamperProvider value={cardIdCamper}>
-      <div className="mb-20">
-        <HeaderSection />
-        <div className="mt-12">
-          <DetailsCamper idCamper={location} cardCamper={cardIdCamper} />
-        </div>
-        <div className="px-[64px]">
-          <FeatureReviewNav />
-          <CamperFeatures />
-          <CamperReviews />
-
-          {location.pathname.match(/^\/catalog\/[^/]+$/) && (
-            <Navigate to="features" replace />
-          )}
-          <Outlet />
-        </div>
+    <div className="mb-20">
+      <HeaderSection />
+      <div className="mt-12">
+        <DetailsCamper idCamper={location} cardCamper={cardIdCamper} />
       </div>
-    </CamperProvider>
+      <div className="px-[64px]">
+        <FeatureReviewNav />
+
+        {location.pathname.match(/^\/catalog\/[^/]+$/) && (
+          <Navigate to="features" replace />
+        )}
+        <Outlet />
+      </div>
+    </div>
   );
 };
 
