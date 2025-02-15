@@ -42,7 +42,7 @@ const CamperCard = ({ camper }) => {
   return (
     <li
       key={id}
-      className="flex w-[1000px] gap-6 rounded-[20px] border border-lightGrey p-6"
+      className="mr-12 flex w-[900px] gap-6 rounded-[20px] border border-lightGrey p-6"
     >
       <img
         src={gallery?.[0]?.thumb || "default-Picture.jpg"}
@@ -52,10 +52,10 @@ const CamperCard = ({ camper }) => {
       />
 
       <div className="mb-2 w-full">
-        <div className="flex items-center justify-between">
+        <div className="flex items-start justify-between">
           <h3 className="text-xl text-black">{name}</h3>
-          <div className="flex gap-3">
-            <p className="text-xl text-black">&euro;{price.toFixed(2)}</p>
+          <div className="flex items-center gap-3">
+            <p className="ml-4 text-xl text-black">&euro;{price.toFixed(2)}</p>
             <button type="button" onClick={handleFavoriteToggle}>
               <Icon
                 id="heart"

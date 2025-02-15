@@ -21,7 +21,7 @@ const Campers = () => {
 
   return (
     <div className="mb-[52px] flex flex-col items-center">
-      <ul className="mb-10 ml-16 flex flex-col gap-8">
+      <ul className="mb-10 flex flex-col gap-8">
         {campers.map((camper) => (
           <CamperCard key={camper.id} camper={camper} />
         ))}

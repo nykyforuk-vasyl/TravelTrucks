@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
-import CampervanBookingForm from "../../forms/CampervanBookingForm.jsx";
+import CampervanForm from "../CampervanForm/CampervanForm.jsx";
 import CamperReviews from "../../CamperReviews/CamperReviews.jsx";
 
 const ReviewsSection = () => {
   const { id } = useParams();
 
   return (
-    <section className="flex gap-10">
+    <section className="flex flex-wrap gap-10 md:flex-nowrap">
       <CamperReviews camperId={id} />
-      <CampervanBookingForm />
+      <CampervanForm />
     </section>
   );
 };

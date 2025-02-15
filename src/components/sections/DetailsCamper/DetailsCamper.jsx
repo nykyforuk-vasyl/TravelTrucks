@@ -16,7 +16,7 @@ const DetailsCamper = ({ idCamper, cardCamper }) => {
   };
 
   return (
-    <section className="px-[64px]">
+    <section>
       <button
         onClick={handleGoBack}
         className="mb-6 inline-block rounded-full bg-red px-[26px] py-[6px] text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
@@ -37,7 +37,7 @@ const DetailsCamper = ({ idCamper, cardCamper }) => {
 
       <p className="mb-7 text-xl text-black">${price}.00</p>
 
-      <div className="mb-7 flex gap-12">
+      <div className="mb-7 flex flex-wrap gap-12">
         {gallery?.slice(0, 3).map((image, index) => (
           <img
             key={index}

@@ -1,11 +1,11 @@
-import CampervanBookingForm from "../../forms/CampervanBookingForm.jsx";
+import CampervanForm from "../CampervanForm/CampervanForm.jsx";
 import CamperFeatures from "../../CamperFeatures/CamperFeatures.jsx";
 
 const FeatureSection = () => {
   return (
-    <section className="flex gap-10">
+    <section className="min-w-108 flex flex-wrap gap-10 md:flex-nowrap">
       <CamperFeatures />
-      <CampervanBookingForm />
+      <CampervanForm />
     </section>
   );
 };

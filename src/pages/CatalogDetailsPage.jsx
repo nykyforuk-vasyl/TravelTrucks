@@ -43,20 +43,18 @@ const CatalogDetailsPage = () => {
   }
 
   return (
-    <div className="mb-20">
+    <>
       <HeaderSection />
-      <div className="mt-12">
+      <main className="mb-20 mt-12 flex flex-col px-[64px]">
         <DetailsCamper idCamper={location} cardCamper={cardIdCamper} />
-      </div>
-      <div className="px-[64px]">
         <FeatureReviewNav />
 
         {location.pathname.match(/^\/catalog\/[^/]+$/) && (
           <Navigate to="features" replace />
         )}
         <Outlet />
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 

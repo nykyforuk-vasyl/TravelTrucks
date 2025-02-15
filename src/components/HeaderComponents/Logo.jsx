@@ -2,7 +2,7 @@ import Icon from "../../ui/Icon";
 
 const Logo = () => {
   return (
-    <div className="absolute left-16 flex h-4 items-end gap-[0.3px]">
+    <div className="relative flex h-4 items-end gap-[0.3px] md:justify-start">
       <span>
         <Icon id="icon-T" w={13} h={15} className="fill-black" />
       </span>

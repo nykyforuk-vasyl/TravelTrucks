@@ -26,9 +26,9 @@ const CatalogPages = () => {
   }, [error]);
 
   return (
-    <div>
+    <>
       <HeaderSection />
-      <div className="mt-12 flex">
+      <div className="mt-12 flex flex-wrap justify-center md:flex-nowrap">
         <Sidebar />
         {!isFirstLoad && isLoading && (
           <ModalLoader text={"Loading list of campers"} />
@@ -39,7 +39,7 @@ const CatalogPages = () => {
           <Campers />
         )}
       </div>
-    </div>
+    </>
   );
 };
 

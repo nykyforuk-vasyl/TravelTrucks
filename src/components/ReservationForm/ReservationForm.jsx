@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import validationSchema from "./ValidationSchema";
-import Input from "../../../ui/Input";
+import Input from "../../ui/Input";
 
 const ReservationForm = () => {
   const {

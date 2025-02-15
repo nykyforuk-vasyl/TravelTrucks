@@ -36,46 +36,44 @@ const CamperReviews = ({ camperId }) => {
   }
 
   return (
-    <div className="flex-1">
-      <ul className="flex flex-col gap-11">
-        {cardIdCamper.reviews.map(
-          ({ reviewer_name, reviewer_rating, comment }, index) => (
-            <li key={index}>
-              <div className="mb-4 flex gap-4">
-                <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-silver text-xl text-red">
-                  {reviewer_name.charAt(0).toUpperCase()}
-                </span>
+    <ul className="m-w-108 flex flex-1 flex-col gap-11">
+      {cardIdCamper.reviews.map(
+        ({ reviewer_name, reviewer_rating, comment }, index) => (
+          <li key={index}>
+            <div className="mb-4 flex gap-4">
+              <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-silver text-xl text-red">
+                {reviewer_name.charAt(0).toUpperCase()}
+              </span>
 
-                <div className="flex flex-col gap-[2px]">
-                  <p className="font-medium">
-                    <strong>{reviewer_name}</strong> ({reviewer_rating}★)
-                  </p>
+              <div className="flex flex-col gap-[2px]">
+                <p className="font-medium">
+                  <strong>{reviewer_name}</strong> ({reviewer_rating}★)
+                </p>
 
-                  <ul className="flex">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <li key={index}>
-                        <Icon
-                          id="star"
-                          w={16}
-                          h={15}
-                          className={
-                            index < reviewer_rating
-                              ? "fill-yellow"
-                              : "fill-silver"
-                          }
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="flex">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <li key={index}>
+                      <Icon
+                        id="star"
+                        w={16}
+                        h={15}
+                        className={
+                          index < reviewer_rating
+                            ? "fill-yellow"
+                            : "fill-silver"
+                        }
+                      />
+                    </li>
+                  ))}
+                </ul>
               </div>
+            </div>
 
-              <p className="text-base font-normal text-grey">{comment}</p>
-            </li>
-          ),
-        )}
-      </ul>
-    </div>
+            <p className="text-base font-normal text-grey">{comment}</p>
+          </li>
+        ),
+      )}
+    </ul>
   );
 };
 

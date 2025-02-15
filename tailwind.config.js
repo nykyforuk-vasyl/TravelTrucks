@@ -2,6 +2,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
   theme: {
     extend: {
+      screens: {
+        xs: "480px",
+        md: "768px",
+      },
       colors: {
         black: " #101828",
         darkGrey: "#475467",

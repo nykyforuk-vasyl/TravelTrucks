@@ -1,8 +1,8 @@
-import ReservationForm from "./ReservationForm/ReservationForm";
+import ReservationForm from "../../ReservationForm/ReservationForm";
 
-const CampervanBookingForm = () => {
+const CampervanForm = () => {
   return (
-    <div className="flex-1 rounded-[10px] border p-[57px] pt-11">
+    <section className="m-w-108 flex-1 rounded-[10px] border p-[57px] pt-11">
       <h2 className="mb-4 text-custom font-bold text-black">
         Book your campervan now
       </h2>
@@ -10,8 +10,8 @@ const CampervanBookingForm = () => {
         Stay connected! We are always ready to help you.
       </p>
       <ReservationForm />
-    </div>
+    </section>
   );
 };
 
-export default CampervanBookingForm;
+export default CampervanForm;
