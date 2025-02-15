@@ -1,31 +1,82 @@
-const CamperFeatures = ({ cardIdCamper }) => {
-  const { form, length, width, height, tank, consumption } = cardIdCamper;
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import {
+  selectByIdCamper,
+  selectIsLoading,
+  selectError,
+} from "../../redux/campers/selectors.js";
+import { useEffect } from "react";
+import { fetchCampersById } from "../../redux/operations.js";
+import VehicleFeatures from "../VehicleFeatures/VehicleFeatures.jsx";
+import VehicleDetails from "./VehicleDetails.jsx";
+import ModalLoader from "../ModalLoader/ModalLoader.jsx";
+import ModalError from "../ModalError/ModalError.jsx";
+
+const CamperFeatures = () => {
+  const { id } = useParams();
+  const cardIdCamper = useSelector(selectByIdCamper);
+  const dispatch = useDispatch();
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
+
+  useEffect(() => {
+    if (!cardIdCamper || Object.keys(cardIdCamper).length === 0) {
+      dispatch(fetchCampersById(id));
+    }
+  }, [dispatch, id, cardIdCamper]);
+
+  const {
+    AC,
+    gas,
+    kitchen,
+    TV,
+    bathroom,
+    water,
+    radio,
+    refrigerator,
+    microwave,
+  } = cardIdCamper || {};
+
+  if (isLoading) {
+    return <ModalLoader text={"Loading camper features..."} />;
+  }
+
+  if (error) {
+    return (
+      <ModalError
+        text={error}
+        onClose={() => dispatch({ type: "CLEAR_ERROR" })}
+      />
+    );
+  }
 
   return (
-    <div>
-      <h2 className="text-custom">Vehicle details</h2>
-      <div className="my-4 h-px w-full bg-gray-300"></div>
+    <div className="flex-1 rounded-[10px] bg-darkWhite p-[52px] pt-11">
+      <div className="mb-[90px] flex flex-wrap">
+        <VehicleFeatures
+          features={[
+            { text: "AC", icon: "wind", value: AC },
+            { text: "Gas", icon: "hugeicons_gas-stove", value: gas },
+            { text: "Kitchen", icon: "cup-hot", value: kitchen },
+            { text: "TV", icon: "tv", value: TV },
+            { text: "Bathroom", icon: "ph_shower", value: bathroom },
+            { text: "Water", icon: "ion_water-outline", value: water },
+            { text: "Radio", icon: "ui-radios", value: radio },
+            {
+              text: "Refrigerator",
+              icon: "solar_fridge-outline",
+              value: refrigerator,
+            },
+            {
+              text: "Microwave",
+              icon: "lucide_microwave",
+              value: microwave,
+            },
+          ]}
+        />
+      </div>
 
-      <ul className="flex flex-col gap-4 font-semibold">
-        <li className="flex justify-between">
-          <span className="">Form:</span> <span>{form}</span>
-        </li>
-        <li className="flex justify-between">
-          <span className="">Length:</span> <span>{length}</span>
-        </li>
-        <li className="flex justify-between">
-          <span className="">Width:</span> <span>{width}</span>
-        </li>
-        <li className="flex justify-between">
-          <span className="">Height:</span> <span>{height}</span>
-        </li>
-        <li className="flex justify-between">
-          <span className="">Tank:</span> <span>{tank}</span>
-        </li>
-        <li className="flex justify-between">
-          <span className="">Consumption:</span> <span>{consumption}</span>
-        </li>
-      </ul>
+      <VehicleDetails cardIdCamper={cardIdCamper} />
     </div>
   );
 };

@@ -1,84 +1,58 @@
-import { useForm } from "react-hook-form";
-import VehicleEquipment from "../../SidebarComponent/VehicleEquipment";
-import VehicleType from "../../SidebarComponent/VehicleType";
-import SidebarLocation from "../../SidebarComponent/SidebarLocation";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import s from "./SidebarSection.module.css";
 
-const SidebarSection = () => {
-  const { control, handleSubmit } = useForm({});
+import { setFilters } from "../../../redux/filters/slice";
+import { resetCampers } from "../../../redux/campers/slice";
+import { fetchCampers } from "../../../redux/operations";
+import { selectFilters } from "../../../redux/filters/selectors";
 
-  const onSubmit = (data) => {
-    console.log(data);
+import VehicleEquipment from "../../SidebarComponent/VehicleEquipment";
+import VehicleType from "../../SidebarComponent/VehicleType";
+import EngineType from "../../SidebarComponent/EngineType";
+import SidebarLocation from "../../SidebarComponent/SidebarLocation";
+
+const SidebarSection = () => {
+  const dispatch = useDispatch();
+  const filters = useSelector(selectFilters);
+
+  const [tempFilters, setTempFilters] = useState(filters);
+
+  const handleApplyFilters = () => {
+    dispatch(setFilters(tempFilters));
+    dispatch(resetCampers());
+    dispatch(fetchCampers({ ...tempFilters, page: 1, limit: 4 }));
   };
 
   return (
     <aside
       className={`${s.customScrollbar} ml-16 w-[390px] border-t px-[2px] pt-2`}
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label className="mb-2 block text-darkGrey">Location</label>
+      <SidebarLocation
+        tempFilters={tempFilters}
+        setTempFilters={setTempFilters}
+      />
 
-        <SidebarLocation control={control} />
+      <div className="mb-8 mt-4 block text-darkGrey">Filters</div>
 
-        {/* Фільтр за особливостями */}
-        <label className="mb-8 mt-4 block text-darkGrey">Filters</label>
+      <VehicleEquipment
+        tempFilters={tempFilters}
+        setTempFilters={setTempFilters}
+      />
 
-        <h3 className="mb-2 mt-4 block text-custom text-black">
-          Vehicle Equipment
-        </h3>
-        <div className="my-6 h-px w-full bg-gray-300"></div>
+      <EngineType tempFilters={tempFilters} setTempFilters={setTempFilters} />
 
-        <VehicleEquipment />
+      <VehicleType tempFilters={tempFilters} setTempFilters={setTempFilters} />
 
-        {/* <div className="grid grid-cols-3 gap-2">
-          {vehicleFeatures.map((feature) => (
-            <button
-              key={feature}
-              type="button"
-              className={`rounded-lg border px-4 py-2 ${
-                filters.vehicleFeatures.includes(feature)
-                  ? "border-red-500 text-red-500"
-                  : "border-gray-300"
-              }`}
-              onClick={() => dispatch(toggleFeature(feature))}
-            >
-              {feature}
-            </button>
-          ))}
-        </div> */}
-
-        <h3 className="mb-2 mt-4 block text-custom text-black">Vehicle Type</h3>
-        <div className="my-6 h-px w-full bg-gray-300"></div>
-
-        <VehicleType />
-
-        {/* <div className="grid grid-cols-3 gap-2">
-          {vehicleTypes.map((type) => (
-            <button
-              key={type}
-              type="button"
-              className={`rounded-lg border px-4 py-2 ${
-                filters.vehicleType.includes(type)
-                  ? "border-red-500 text-red-500"
-                  : "border-gray-300"
-              }`}
-              onClick={() => dispatch(toggleVehicleType(type))}
-            >
-              {type}
-            </button>
-          ))}
-        </div> */}
-
-        {/* Кнопка пошуку */}
-        <div className="flex w-full justify-center">
-          <button
-            type="submit"
-            className="mb-16 rounded-full bg-red px-[56px] py-4 text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
-          >
-            Search
-          </button>
-        </div>
-      </form>
+      <div className="flex w-full justify-center">
+        <button
+          onClick={handleApplyFilters}
+          type="button"
+          className="mb-16 rounded-full bg-red px-[56px] py-4 text-base text-white transition-all hover:bg-darkRed active:bg-darkRed"
+        >
+          Search
+        </button>
+      </div>
     </aside>
   );
 };

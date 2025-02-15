@@ -5,7 +5,6 @@ const VehicleFeatures = ({ features }) => {
     <div className="mb-8 flex flex-wrap gap-3">
       {features.map((feature) => {
         if (feature.value) {
-          // Перевіряємо, чи значення властивості true
           const isException = [
             "hugeicons_gas-stove",
             "lucide_microwave",
@@ -15,7 +14,7 @@ const VehicleFeatures = ({ features }) => {
           return (
             <li
               key={feature.text}
-              className="flex items-center gap-2 rounded-full bg-[#e8e8e9] px-[18px] py-3 text-base font-semibold text-black"
+              className="flex items-center gap-2 rounded-full bg-[#eeeeee] px-[18px] py-3 text-base font-semibold text-black"
             >
               <Icon
                 id={feature.icon}
@@ -27,7 +26,7 @@ const VehicleFeatures = ({ features }) => {
             </li>
           );
         }
-        return null; // Не відображати, якщо значення false
+        return null;
       })}
     </div>
   );

@@ -1,43 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCampers, fetchCampersById } from "./operations";
-// isAnyOf
+import { fetchCampers, fetchCampersById } from "../operations";
 
 const initialState = {
   campersItem: [],
   camper: null,
-  favorites: [],
-  // feauters: [],
+  totalCampers: null,
   loading: false,
   error: null,
 };
 
-const slice = createSlice({
+const campersSlice = createSlice({
   name: "campers",
   initialState,
   reducers: {
-    addFavorite: (state, action) => {
-      if (!state.favorites.includes(action.payload)) {
-        state.favorites.push(action.payload); // Додаємо до улюблених
-      }
-    },
-    removeFavorite: (state, action) => {
-      state.favorites = state.favorites.filter((id) => id !== action.payload);
+    resetCampers: (state) => {
+      state.campersItem = [];
+      state.totalCampers = null;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.pending, (state) => {
-        state.loading = true; // Завантаження почалося
-        state.error = null; // Скидаємо попередні помилки
+        state.loading = true;
+        state.error = null;
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
-        state.loading = false; // Завантаження завершено
-        state.campersItem = action.payload; // Додаємо отримані дані
+        state.loading = false;
+        state.totalCampers = action.payload.total;
+        const newCampers = action.payload.items.filter(
+          (newCamper) =>
+            !state.campersItem.some(
+              (existingCamper) => existingCamper.id === newCamper.id,
+            ),
+        );
+        state.campersItem = [...state.campersItem, ...newCampers];
       })
       .addCase(fetchCampers.rejected, (state, action) => {
-        state.loading = false; // Завантаження завершено з помилкою
-        state.error = action.payload; // Зберігаємо помилку
+        state.loading = false;
+        state.error = action.payload;
       })
+
       .addCase(fetchCampersById.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -53,5 +55,5 @@ const slice = createSlice({
   },
 });
 
-export const { addFavorite, removeFavorite } = slice.actions;
-export const campersReducer = slice.reducer;
+export const { resetCampers } = campersSlice.actions;
+export const campersReducer = campersSlice.reducer;

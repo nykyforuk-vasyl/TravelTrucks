@@ -2,18 +2,19 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectByIdCamper,
   selectIsLoading,
-  selectIsError,
+  selectError,
 } from "../../redux/campers/selectors.js";
 import { useEffect } from "react";
-import { fetchCampersById } from "../../redux/campers/operations.js";
+import { fetchCampersById } from "../../redux/operations.js";
 import ModalLoader from "../../components/ModalLoader/ModalLoader.jsx";
+import ModalError from "../../components/ModalError/ModalError.jsx";
 import Icon from "../../ui/Icon";
 
 const CamperReviews = ({ camperId }) => {
   const cardIdCamper = useSelector(selectByIdCamper);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectIsError);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     if (!cardIdCamper || Object.keys(cardIdCamper).length === 0) {
@@ -22,52 +23,57 @@ const CamperReviews = ({ camperId }) => {
   }, [dispatch, camperId, cardIdCamper]);
 
   if (isLoading) {
-    return <ModalLoader text={"Loaders..."} />;
+    return <ModalLoader text={"Loading camper reviews..."} />;
   }
 
   if (error) {
-    return <ModalLoader text={error} />;
+    return (
+      <ModalError
+        text={error}
+        onClose={() => dispatch({ type: "CLEAR_ERROR" })}
+      />
+    );
   }
-
-  const { reviews } = cardIdCamper;
 
   return (
     <div className="flex-1">
       <ul className="flex flex-col gap-11">
-        {reviews.map(({ reviewer_name, reviewer_rating, comment }, index) => (
-          <li key={index}>
-            <div className="mb-4 flex gap-4">
-              <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-silver text-xl text-red">
-                {reviewer_name.charAt(0).toUpperCase()}
-              </span>
+        {cardIdCamper.reviews.map(
+          ({ reviewer_name, reviewer_rating, comment }, index) => (
+            <li key={index}>
+              <div className="mb-4 flex gap-4">
+                <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-silver text-xl text-red">
+                  {reviewer_name.charAt(0).toUpperCase()}
+                </span>
 
-              <div className="flex flex-col gap-[2px]">
-                <p className="font-medium">
-                  <strong>{reviewer_name}</strong> ({reviewer_rating}★)
-                </p>
+                <div className="flex flex-col gap-[2px]">
+                  <p className="font-medium">
+                    <strong>{reviewer_name}</strong> ({reviewer_rating}★)
+                  </p>
 
-                <ul className="flex">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <li key={index}>
-                      <Icon
-                        id="star"
-                        w={16}
-                        h={15}
-                        className={
-                          index < reviewer_rating
-                            ? "fill-yellow"
-                            : "fill-silver"
-                        }
-                      />
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="flex">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <li key={index}>
+                        <Icon
+                          id="star"
+                          w={16}
+                          h={15}
+                          className={
+                            index < reviewer_rating
+                              ? "fill-yellow"
+                              : "fill-silver"
+                          }
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <p className="text-base font-normal text-grey">{comment}</p>
-          </li>
-        ))}
+              <p className="text-base font-normal text-grey">{comment}</p>
+            </li>
+          ),
+        )}
       </ul>
     </div>
   );

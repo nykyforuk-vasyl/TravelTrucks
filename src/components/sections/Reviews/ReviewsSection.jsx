@@ -6,11 +6,9 @@ const ReviewsSection = () => {
   const { id } = useParams();
 
   return (
-    <section>
-      <div className="flex gap-10">
-        <CamperReviews camperId={id} />
-        <CampervanBookingForm />
-      </div>
+    <section className="flex gap-10">
+      <CamperReviews camperId={id} />
+      <CampervanBookingForm />
     </section>
   );
 };

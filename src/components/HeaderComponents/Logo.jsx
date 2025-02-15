@@ -41,7 +41,7 @@ const Logo = () => {
         <Icon
           id="icon-S"
           w={12}
-          h={15}
+          h={14}
           className="absolute left-[120.7px] top-[3.3px] fill-darkGrey"
         />
       </span>

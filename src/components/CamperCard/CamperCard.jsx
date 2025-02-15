@@ -2,30 +2,32 @@ import Icon from "../../ui/Icon";
 import VehicleFeatures from "../VehicleFeatures/VehicleFeatures";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite } from "../../redux/campers/slice";
-import { selectFavorites } from "../../redux/campers/selectors";
+import { addFavorite, removeFavorite } from "../../redux/favorites/slice";
+import { selectFavorites } from "../../redux/favorites/selectors";
 
-const CamperCard = ({
-  id,
-  name,
-  gallery,
-  price,
-  rating,
-  reviews,
-  location,
-  description,
-  AC,
-  gas,
-  kitchen,
-  TV,
-  bathroom,
-  water,
-  radio,
-  refrigerator,
-  microwave,
-}) => {
+const CamperCard = ({ camper }) => {
   const dispatch = useDispatch();
-  const favorites = useSelector(selectFavorites);
+  const favorites = useSelector(selectFavorites) || [];
+
+  const {
+    id,
+    name,
+    gallery,
+    price,
+    rating,
+    reviews,
+    location,
+    description,
+    AC,
+    gas,
+    kitchen,
+    TV,
+    bathroom,
+    water,
+    radio,
+    refrigerator,
+    microwave,
+  } = camper;
 
   const isFavorited = favorites.includes(id);
 
@@ -38,7 +40,7 @@ const CamperCard = ({
   };
 
   return (
-    <div
+    <li
       key={id}
       className="flex w-[888px] gap-6 rounded-[20px] border border-lightGrey p-6"
     >
@@ -46,6 +48,7 @@ const CamperCard = ({
         src={gallery?.[0]?.thumb || "default-Picture.jpg"}
         alt={name}
         className="h-[320px] w-[292px] rounded-[10px] object-cover"
+        loading="lazy"
       />
 
       <div className="mb-2 w-full">
@@ -76,24 +79,25 @@ const CamperCard = ({
         <p className="mb-6 w-[525px] truncate text-base font-normal text-darkGrey">
           {description}
         </p>
-
-        <VehicleFeatures
-          features={[
-            { text: "AC", icon: "wind", value: AC },
-            { text: "Gas", icon: "hugeicons_gas-stove", value: gas },
-            { text: "Kitchen", icon: "cup-hot", value: kitchen },
-            { text: "TV", icon: "tv", value: TV },
-            { text: "Bathroom", icon: "ph_shower", value: bathroom },
-            { text: "Water", icon: "ion_water-outline", value: water },
-            { text: "Radio", icon: "ui-radios", value: radio },
-            {
-              text: "Refrigerator",
-              icon: "solar_fridge-outline",
-              value: refrigerator,
-            },
-            { text: "Microwave", icon: "lucide_microwave", value: microwave },
-          ]}
-        />
+        <ul>
+          <VehicleFeatures
+            features={[
+              { text: "AC", icon: "wind", value: AC },
+              { text: "Gas", icon: "hugeicons_gas-stove", value: gas },
+              { text: "Kitchen", icon: "cup-hot", value: kitchen },
+              { text: "TV", icon: "tv", value: TV },
+              { text: "Bathroom", icon: "ph_shower", value: bathroom },
+              { text: "Water", icon: "ion_water-outline", value: water },
+              { text: "Radio", icon: "ui-radios", value: radio },
+              {
+                text: "Refrigerator",
+                icon: "solar_fridge-outline",
+                value: refrigerator,
+              },
+              { text: "Microwave", icon: "lucide_microwave", value: microwave },
+            ]}
+          />
+        </ul>
 
         <Link
           to={`/catalog/${id}`}
@@ -102,7 +106,7 @@ const CamperCard = ({
           Show more
         </Link>
       </div>
-    </div>
+    </li>
   );
 };
 
