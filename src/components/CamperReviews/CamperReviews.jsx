@@ -35,8 +35,10 @@ const CamperReviews = ({ camperId }) => {
     );
   }
 
+  if (!cardIdCamper || !cardIdCamper.reviews) return;
+
   return (
-    <ul className="m-w-108 flex flex-1 flex-col gap-11">
+    <ul className="m-w-108 flex flex-1 flex-col gap-11 md:pr-[104px]">
       {cardIdCamper.reviews.map(
         ({ reviewer_name, reviewer_rating, comment }, index) => (
           <li key={index}>

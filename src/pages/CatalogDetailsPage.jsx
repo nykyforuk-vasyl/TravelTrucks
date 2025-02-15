@@ -45,8 +45,8 @@ const CatalogDetailsPage = () => {
   return (
     <>
       <HeaderSection />
-      <main className="mb-20 mt-12 flex flex-col px-[64px]">
-        <DetailsCamper idCamper={location} cardCamper={cardIdCamper} />
+      <main className="mb-20 mt-12 flex flex-col px-4 md:px-[64px]">
+        <DetailsCamper cardCamper={cardIdCamper} />
         <FeatureReviewNav />
 
         {location.pathname.match(/^\/catalog\/[^/]+$/) && (

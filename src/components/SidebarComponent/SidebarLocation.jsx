@@ -71,7 +71,7 @@ const SidebarLocation = ({ tempFilters, setTempFilters }) => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           placeholder="Kyiv, Ukraine"
-          className="relative w-full rounded-[12px] border border-silver bg-darkWhite p-[18px] px-12 text-base text-black placeholder:text-black focus:outline-none"
+          className="relative w-full rounded-[12px] border border-silver bg-darkWhite p-[18px] text-base text-black placeholder:text-black focus:outline-none md:px-12"
         />
         {suggestions.length > 0 && (
           <ul className="border-1 absolute left-0 top-[100%] z-10 flex w-full flex-col items-center justify-center gap-3 overflow-y-auto rounded-xl border bg-white">

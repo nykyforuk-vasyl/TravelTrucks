@@ -1,0 +1,32 @@
+.link {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #101828;
+    position: relative;
+    padding-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -27px;
+    width: 0;
+    height: 6px;
+    background-color: #d84343;
+    border-radius: 2px;
+    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.link:hover::after {
+    width: 114%;
+    opacity: 1;
+}
+
+.activeLink::after {
+    width: 114%;
+    opacity: 1;
+    transition: width 0.3s ease-in-out;
+}

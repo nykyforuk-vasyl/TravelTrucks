@@ -51,8 +51,8 @@ const CamperFeatures = () => {
   }
 
   return (
-    <div className="flex-1 rounded-[10px] bg-darkWhite p-[52px] pt-11">
-      <div className="mb-[90px] flex flex-wrap">
+    <div className="m-w-108 flex-1 rounded-[10px] bg-darkWhite p-5 pt-7 md:p-[52px] md:pt-11">
+      <div className="mb-3 flex flex-wrap md:mb-[90px]">
         <VehicleFeatures
           features={[
             { text: "AC", icon: "wind", value: AC },

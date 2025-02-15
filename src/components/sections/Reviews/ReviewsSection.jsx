@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import CampervanForm from "../CampervanForm/CampervanForm.jsx";
+import CampervanForm from "../../CampervanForm/CampervanForm.jsx";
 import CamperReviews from "../../CamperReviews/CamperReviews.jsx";
 
 const ReviewsSection = () => {

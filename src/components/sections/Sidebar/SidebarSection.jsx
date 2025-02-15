@@ -26,7 +26,7 @@ const SidebarSection = () => {
 
   return (
     <aside
-      className={`${s.customScrollbar} mx-16 mb-12 w-[390px] border-y px-[2px] pt-2`}
+      className={`${s.customScrollbar} mb-12 w-[280px] border-y px-[2px] pt-2 md:mr-16 md:w-[386px]`}
     >
       <SidebarLocation
         tempFilters={tempFilters}

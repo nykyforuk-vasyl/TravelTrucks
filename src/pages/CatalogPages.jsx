@@ -28,7 +28,7 @@ const CatalogPages = () => {
   return (
     <>
       <HeaderSection />
-      <div className="mt-12 flex flex-wrap justify-center md:flex-nowrap">
+      <div className="mt-12 flex flex-wrap justify-center px-8 md:flex-nowrap md:px-16">
         <Sidebar />
         {!isFirstLoad && isLoading && (
           <ModalLoader text={"Loading list of campers"} />

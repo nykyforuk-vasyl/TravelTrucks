@@ -42,20 +42,23 @@ const CamperCard = ({ camper }) => {
   return (
     <li
       key={id}
-      className="mr-12 flex w-[900px] gap-6 rounded-[20px] border border-lightGrey p-6"
+      className="flex flex-wrap gap-6 rounded-[20px] border border-lightGrey p-6 md:w-[900px] md:flex-nowrap"
     >
       <img
         src={gallery?.[0]?.thumb || "default-Picture.jpg"}
         alt={name}
-        className="h-[320px] w-[292px] rounded-[10px] object-cover"
+        className="rounded-[10px] object-cover md:h-[320px] md:w-[292px]"
         loading="lazy"
       />
 
-      <div className="mb-2 w-full">
-        <div className="flex items-start justify-between">
+      <div className="mb-2 w-full flex-wrap md:flex-nowrap">
+        <div className="mb-4 flex flex-wrap items-start gap-3 md:mb-0 md:justify-between md:gap-0">
           <h3 className="text-xl text-black">{name}</h3>
+
           <div className="flex items-center gap-3">
-            <p className="ml-4 text-xl text-black">&euro;{price.toFixed(2)}</p>
+            <p className="text-xl text-black md:ml-4">
+              &euro;{price.toFixed(2)}
+            </p>
             <button type="button" onClick={handleFavoriteToggle}>
               <Icon
                 id="heart"
@@ -67,7 +70,7 @@ const CamperCard = ({ camper }) => {
           </div>
         </div>
 
-        <div className="mb-6 flex items-center">
+        <div className="mb-6 flex flex-wrap items-center">
           <Icon id="star" w={18} h={18} className="mr-1 fill-yellow" />
           <p className="mr-4 text-base font-normal underline">
             {rating}({reviews?.length || 0}Reviews)
@@ -76,10 +79,10 @@ const CamperCard = ({ camper }) => {
           <p className="mr-4 text-base font-normal">{location}</p>
         </div>
 
-        <p className="mb-6 w-[525px] truncate text-base font-normal text-darkGrey">
+        <p className="mb-6 w-[260px] truncate text-base font-normal text-darkGrey md:w-[525px]">
           {description}
         </p>
-        <ul>
+        <ul className="mb-12 md:mb-0">
           <VehicleFeatures
             features={[
               { text: "AC", icon: "wind", value: AC },

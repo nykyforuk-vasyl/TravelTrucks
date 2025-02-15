@@ -2,7 +2,7 @@ import Icon from "../../ui/Icon";
 
 const VehicleFeatures = ({ features }) => {
   return (
-    <div className="mb-8 flex flex-wrap gap-3">
+    <div className="mb-8 flex w-full flex-wrap gap-3">
       {features.map((feature) => {
         if (feature.value) {
           const isException = [

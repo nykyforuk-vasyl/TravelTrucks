@@ -2,7 +2,6 @@ const VehicleDetails = ({ cardIdCamper }) => {
   const { form, length, width, height, tank, consumption, transmission } =
     cardIdCamper || {};
 
-  // Створюємо масив об'єктів з даними
   const vehicleDetails = [
     { label: "Transmission", value: transmission },
     { label: "Form", value: form },

@@ -59,7 +59,7 @@ const ReservationForm = () => {
         <textarea
           {...register("comment")}
           placeholder="Comment"
-          className={`h-[118px] w-full rounded-[10px] bg-darkWhite p-[18px] placeholder:text-grey focus:outline-none ${errors.comment ? "border-red focus:ring-red" : "focus:border-darkWhite"}`}
+          className={`h-[118px] w-full resize-none rounded-[10px] bg-darkWhite p-[18px] placeholder:text-grey focus:outline-none ${errors.comment ? "border-red focus:ring-red" : "focus:border-darkWhite"}`}
         />
         {errors.comment && (
           <p className="mt-2 text-sm text-red">{errors.comment.message}</p>

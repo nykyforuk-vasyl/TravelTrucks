@@ -1,30 +1,12 @@
 import Icon from "../../../ui/Icon.jsx";
-import { useNavigate } from "react-router-dom";
 
-const DetailsCamper = ({ idCamper, cardCamper }) => {
-  const navigate = useNavigate();
-
+const DetailsCamper = ({ cardCamper }) => {
   const { name, gallery, price, rating, reviews, location, description } =
     cardCamper || {};
 
-  const handleGoBack = () => {
-    if (idCamper.pathname.startsWith("/catalog/")) {
-      navigate("/catalog");
-    } else {
-      navigate(-1);
-    }
-  };
-
   return (
     <section>
-      <button
-        onClick={handleGoBack}
-        className="mb-6 inline-block rounded-full bg-red px-[26px] py-[6px] text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
-      >
-        Go Back
-      </button>
-
-      <h3 className="text-xl text-black">{name}</h3>
+      <h3 className="mb-6 text-xl text-black">{name}</h3>
 
       <div className="mb-4 flex items-center">
         <Icon id="star" w={18} h={18} className="mr-1 fill-yellow" />
