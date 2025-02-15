@@ -42,7 +42,7 @@ const CamperCard = ({ camper }) => {
   return (
     <li
       key={id}
-      className="flex w-[888px] gap-6 rounded-[20px] border border-lightGrey p-6"
+      className="flex w-[1000px] gap-6 rounded-[20px] border border-lightGrey p-6"
     >
       <img
         src={gallery?.[0]?.thumb || "default-Picture.jpg"}
