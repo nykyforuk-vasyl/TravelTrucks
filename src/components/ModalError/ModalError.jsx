@@ -17,7 +17,10 @@ const ModalError = ({ text, onClose }) => {
         modal: s.mainModalContent,
       }}
     >
-      <button className="absolute right-1/2 top-4 rounded-xl bg-red px-8 py-[2px] text-base text-darkWhite hover:bg-darkRed">
+      <button
+        onClick={onClose}
+        className="rounded-xl bg-red px-2 py-[2px] text-base text-darkWhite hover:bg-darkRed"
+      >
         X
       </button>
       <Loader close={onClose} text={text} />
