@@ -1,9 +1,13 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import DatePicker, { registerLocale } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { enGB } from "date-fns/locale";
+import { useForm, Controller } from "react-hook-form";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import validationSchema from "./ValidationSchema";
 import Input from "../../ui/Input";
+import "./datepicker.css";
 
 const ReservationForm = () => {
   const {
@@ -15,6 +19,8 @@ const ReservationForm = () => {
     resolver: yupResolver(validationSchema),
     mode: "onChange",
   });
+
+  registerLocale("enGB", enGB);
 
   const onSubmit = (data) => {
     console.log("Форма відправлена:", data);
@@ -46,14 +52,35 @@ const ReservationForm = () => {
         className="rounded-3 bg-darkWhite"
       />
 
-      <Input
-        control={control}
-        name="bookingDate"
-        type="date"
-        placeholder="Booking date*"
-        error={errors.bookingDate}
-        className="rounded-3 bg-darkWhite"
-      />
+      <div className="relative mb-4 flex flex-col">
+        <Controller
+          name="bookingDate"
+          control={control}
+          render={({ field }) => (
+            <DatePicker
+              selected={field.value ? new Date(field.value) : null}
+              onChange={(date) =>
+                field.onChange(date ? date.toISOString() : "")
+              }
+              locale="enGB"
+              type="number"
+              dateFormat="dd.MM.yyyy"
+              placeholderText="Booking date*"
+              className={`w-full rounded-[12px] bg-darkWhite p-3 text-base text-sm placeholder:text-grey focus:outline-none md:p-[18px] md:placeholder:text-base ${
+                errors.bookingDate
+                  ? "border-red focus:ring-red"
+                  : "focus:border-darkWhite"
+              }`}
+              calendarStartDay={1}
+              formatWeekDay={(day) => day.toUpperCase().slice(0, 3)}
+              minDate={new Date()}
+            />
+          )}
+        />
+        {errors.bookingDate && (
+          <p className="mt-2 text-sm text-red">{errors.bookingDate.message}</p>
+        )}
+      </div>
 
       <div className="mb-4">
         <textarea
