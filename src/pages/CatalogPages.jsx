@@ -14,6 +14,7 @@ const CatalogPages = () => {
   const error = useSelector(selectError);
   const [errorText, setErrorText] = useState("");
   const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     dispatch(fetchCampers({ page: 1, limit: 4 })).finally(() =>
@@ -25,11 +26,28 @@ const CatalogPages = () => {
     setErrorText(error);
   }, [error]);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
   return (
     <>
       <HeaderSection />
-      <div className="mt-12 flex flex-wrap justify-center px-8 md:flex-nowrap md:px-16">
-        <Sidebar />
+      <main className="mt-12 flex flex-wrap justify-center px-8 md:flex-nowrap md:px-16">
+        <div className="flex flex-col">
+          <button
+            onClick={toggleSidebar}
+            className="toggle-btn mb-6 rounded-full bg-red px-6 py-2 text-white hover:bg-darkRed active:bg-darkRed md:absolute md:left-20"
+          >
+            {isSidebarOpen ? "Close Filters" : "Open Filters"}
+          </button>
+
+          <Sidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+          />
+        </div>
+
         {!isFirstLoad && isLoading && (
           <ModalLoader text={"Loading list of campers"} />
         )}
@@ -38,7 +56,7 @@ const CatalogPages = () => {
         ) : (
           <Campers />
         )}
-      </div>
+      </main>
     </>
   );
 };

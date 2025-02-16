@@ -4,7 +4,7 @@ export default function NotFoundPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex size-full h-screen flex-col items-center justify-center rounded-[60px] bg-lightGrey text-center">
+    <main className="flex size-full h-screen flex-col items-center justify-center rounded-[60px] bg-lightGrey text-center">
       <h1 className="text-9xl font-extrabold text-black">404</h1>
       <p className="mt-4 text-2xl font-semibold text-darkGrey">
         Oops! The page you&apos;re looking for doesn&apos;t exist.
@@ -18,6 +18,6 @@ export default function NotFoundPage() {
       >
         Go Back
       </button>
-    </div>
+    </main>
   );
 }

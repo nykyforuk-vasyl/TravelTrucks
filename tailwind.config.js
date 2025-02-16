@@ -3,7 +3,8 @@ export default {
   theme: {
     extend: {
       screens: {
-        xs: "480px",
+        xs: { max: "767px" },
+        ls: "480px",
         md: "768px",
       },
       colors: {

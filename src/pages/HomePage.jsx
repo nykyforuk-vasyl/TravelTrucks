@@ -3,10 +3,10 @@ import HomeSection from "../components/sections/Home/HomeSection.jsx";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <HeaderSection />
       <HomeSection />
-    </div>
+    </>
   );
 };
 
