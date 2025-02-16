@@ -10,7 +10,7 @@ const favoritesSlice = createSlice({
   reducers: {
     addFavorite: (state, action) => {
       if (!state.favorites.includes(action.payload)) {
-        state.favorites.push(action.payload); // Додаємо до улюблених
+        state.favorites.push(action.payload);
       }
     },
     removeFavorite: (state, action) => {

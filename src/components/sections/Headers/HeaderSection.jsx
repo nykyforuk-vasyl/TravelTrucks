@@ -1,5 +1,5 @@
-import Navigation from "../../HeaderComponents/Navigation";
-import Logo from "../../HeaderComponents/Logo";
+import Navigation from "../../Navigation/Navigation";
+import Logo from "../../Logo/Logo";
 
 const HeaderSection = () => {
   return (

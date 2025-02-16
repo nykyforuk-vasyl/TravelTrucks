@@ -51,7 +51,7 @@ const CamperCard = ({ camper }) => {
         <div className="mb-4 flex flex-wrap items-start gap-3 md:mb-0 md:justify-between md:gap-0">
           <h3 className="text-xl text-black">{name}</h3>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-24 md:gap-3">
             <p className="text-xl text-black md:ml-4">
               &euro;{price.toFixed(2)}
             </p>

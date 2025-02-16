@@ -23,7 +23,6 @@ export default {
         inter: ["Inter", "sans-serif"],
       },
       fontSize: {
-        // Додаємо кастомні розміри шрифтів з lineHeight, letterSpacing і fontWeight
         xs: [
           "12px",
           { lineHeight: "18px", letterSpacing: "-0.02em", fontWeight: 400 },

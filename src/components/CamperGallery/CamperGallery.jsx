@@ -2,8 +2,6 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-// import css from "./CamperGallery.module.css";
-
 const CamperGallery = ({ images, isPreview = false }) => {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,8 +14,6 @@ const CamperGallery = ({ images, isPreview = false }) => {
     src: img.original,
     thumbnail: img.thumb,
   }));
-
-  //   {css.camper_gallery}
 
   return (
     <>
