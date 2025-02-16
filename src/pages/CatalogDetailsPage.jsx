@@ -1,6 +1,7 @@
 import HeaderSection from "../components/sections/Headers/HeaderSection.jsx";
 import FeatureReviewNav from "../components/sections/FeatureReviewNav/FeatureReviewNav.jsx";
 import DetailsCamper from "../components/sections/DetailsCamper/DetailsCamper.jsx";
+import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton.jsx";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,6 +54,7 @@ const CatalogDetailsPage = () => {
           <Navigate to="features" replace />
         )}
         <Outlet />
+        <ScrollToTopButton />
       </main>
     </>
   );

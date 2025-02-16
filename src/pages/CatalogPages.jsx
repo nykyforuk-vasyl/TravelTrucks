@@ -1,6 +1,7 @@
 import HeaderSection from "../components/sections/Headers/HeaderSection.jsx";
 import Sidebar from "../components/sections/Sidebar/SidebarSection.jsx";
 import Campers from "../components/sections/Campers/Campers.jsx";
+import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton.jsx";
 import ModalLoader from "../components/ModalLoader/ModalLoader.jsx";
 import ModalError from "../components/ModalError/ModalError.jsx";
 import { useDispatch, useSelector } from "react-redux";
@@ -37,7 +38,7 @@ const CatalogPages = () => {
         <div className="flex flex-col">
           <button
             onClick={toggleSidebar}
-            className="toggle-btn mb-6 rounded-full bg-red px-6 py-2 text-white hover:bg-darkRed active:bg-darkRed md:absolute md:left-20"
+            className="toggle-btn mb-6 rounded-full bg-red px-6 py-2 text-white hover:bg-darkRed active:bg-darkRed md:absolute md:left-12"
           >
             {isSidebarOpen ? "Close Filters" : "Open Filters"}
           </button>
@@ -56,6 +57,7 @@ const CatalogPages = () => {
         ) : (
           <Campers />
         )}
+        <ScrollToTopButton />
       </main>
     </>
   );

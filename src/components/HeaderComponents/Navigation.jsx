@@ -7,7 +7,7 @@ const Navigation = () => {
     return clsx(s.link, isActive && s.activeLink);
   };
   return (
-    <nav className="flex flex-grow justify-center gap-6">
+    <nav className="flex flex-grow justify-center gap-6 font-semibold">
       <NavLink className={buildLinkClass} to="/">
         Home
       </NavLink>

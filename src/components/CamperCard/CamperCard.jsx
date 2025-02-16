@@ -1,5 +1,6 @@
 import Icon from "../../ui/Icon";
 import VehicleFeatures from "../VehicleFeatures/VehicleFeatures";
+import CamperGallery from "../../components/CamperGallery/CamperGallery";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/favorites/slice";
@@ -44,12 +45,7 @@ const CamperCard = ({ camper }) => {
       key={id}
       className="flex flex-wrap gap-6 rounded-[20px] border border-lightGrey p-6 md:w-[900px] md:flex-nowrap"
     >
-      <img
-        src={gallery?.[0]?.thumb || "default-Picture.jpg"}
-        alt={name}
-        className="rounded-[10px] object-cover md:h-[320px] md:w-[292px]"
-        loading="lazy"
-      />
+      <CamperGallery images={gallery} isPreview={true} />
 
       <div className="mb-2 w-full flex-wrap md:flex-nowrap">
         <div className="mb-4 flex flex-wrap items-start gap-3 md:mb-0 md:justify-between md:gap-0">
@@ -104,7 +100,7 @@ const CamperCard = ({ camper }) => {
 
         <Link
           to={`/catalog/${id}`}
-          className="rounded-full bg-red px-10 py-4 text-base text-white transition-colors hover:bg-darkRed active:bg-darkRed"
+          className="rounded-full bg-red px-8 py-3 text-sm text-white transition-colors hover:bg-darkRed active:bg-darkRed md:px-10 md:py-4 md:text-base"
         >
           Show more
         </Link>

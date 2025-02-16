@@ -3,9 +3,9 @@ export default {
   theme: {
     extend: {
       screens: {
-        xs: { max: "767px" },
+        xs: { max: "820px" },
         ls: "480px",
-        md: "768px",
+        md: "821px",
       },
       colors: {
         black: " #101828",

@@ -30,7 +30,7 @@ const Campers = () => {
       {!isLoading && campers.length < totalCampers && (
         <button
           onClick={loadMore}
-          className="my-auto mb-[52px] mt-10 rounded-full border border-lightGrey bg-white px-[32px] py-4 text-base text-black transition-colors hover:border-darkRed active:border-darkRed"
+          className="my-auto mb-[52px] mt-0 rounded-full border border-lightGrey bg-white px-[32px] py-4 text-base text-black transition-colors hover:border-darkRed active:border-darkRed md:mt-10"
         >
           Load more
         </button>

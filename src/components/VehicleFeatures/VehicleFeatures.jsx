@@ -14,7 +14,7 @@ const VehicleFeatures = ({ features }) => {
           return (
             <li
               key={feature.text}
-              className="flex items-center gap-2 rounded-full bg-[#eeeeee] px-[18px] py-3 text-base font-semibold text-black"
+              className="flex items-center gap-2 rounded-full bg-[#eeeeee] px-[12px] py-[6px] text-sm font-semibold text-black md:px-[18px] md:py-3 md:text-base"
             >
               <Icon
                 id={feature.icon}
