@@ -68,8 +68,8 @@ The project is implemented according to the design mockups. The main focus is on
 
 # 📸 Screenshots
 
-![Home](image.png)
-![Catalog and filters-modal](image-1.png)
+![Home](/public//images/Welcome/image.png)
+![Catalog and filters-modal](/public//images/Welcome/image-1.png)
 
 # 💡 Future Improvements
 
