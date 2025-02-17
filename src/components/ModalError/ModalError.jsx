@@ -18,7 +18,7 @@ const ModalError = ({ text, onClose }) => {
       }}
     >
       <button
-        onClick={onClose}
+        onClick={() => onClose()}
         className="rounded-xl bg-red px-2 py-[2px] text-base text-darkWhite hover:bg-darkRed"
       >
         X
