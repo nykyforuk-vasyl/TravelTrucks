@@ -25,10 +25,8 @@ const CatalogDetailsPage = () => {
   const error = useSelector(selectError);
 
   useEffect(() => {
-    if (!cardIdCamper && !isLoading) {
-      dispatch(fetchCampersById(id));
-    }
-  }, [dispatch, id, cardIdCamper, isLoading]);
+    dispatch(fetchCampersById(id));
+  }, [dispatch, id]);
 
   if (isLoading) {
     return <ModalLoader text={"Loading camper details..."} />;
