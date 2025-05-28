@@ -6,7 +6,7 @@ import {
 } from "../../redux/campers/selectors.js";
 import { useEffect } from "react";
 import { fetchCampersById } from "../../redux/operations.js";
-import ModalLoader from "../../components/ModalLoader/ModalLoader.jsx";
+import ClipLoader from "react-spinners/ClipLoader";
 import ModalError from "../../components/ModalError/ModalError.jsx";
 import Icon from "../../ui/Icon";
 
@@ -23,7 +23,11 @@ const CamperReviews = ({ camperId }) => {
   }, [dispatch, camperId, cardIdCamper]);
 
   if (isLoading) {
-    return <ModalLoader text={"Loading camper reviews..."} />;
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <ClipLoader color="#e44848" size={70} />
+      </div>
+    );
   }
 
   if (error) {

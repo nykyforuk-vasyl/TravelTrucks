@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { fetchCampersById } from "../../redux/operations.js";
 import VehicleFeatures from "../VehicleFeatures/VehicleFeatures.jsx";
 import VehicleDetails from "./VehicleDetails.jsx";
-import ModalLoader from "../ModalLoader/ModalLoader.jsx";
+import ClipLoader from "react-spinners/ClipLoader";
 import ModalError from "../ModalError/ModalError.jsx";
 
 const CamperFeatures = () => {
@@ -38,7 +38,11 @@ const CamperFeatures = () => {
   } = cardIdCamper || {};
 
   if (isLoading) {
-    return <ModalLoader text={"Loading camper features..."} />;
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <ClipLoader color="#e44848" size={70} />
+      </div>
+    );
   }
 
   if (error) {

@@ -13,7 +13,7 @@ import {
 } from "../redux/campers/selectors.js";
 import { fetchCampersById } from "../redux/operations.js";
 
-import ModalLoader from "../components/ModalLoader/ModalLoader.jsx";
+import ClipLoader from "react-spinners/ClipLoader";
 import ModalError from "../components/ModalError/ModalError.jsx";
 
 const CatalogDetailsPage = () => {
@@ -29,7 +29,11 @@ const CatalogDetailsPage = () => {
   }, [dispatch, id]);
 
   if (isLoading) {
-    return <ModalLoader text={"Loading camper details..."} />;
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <ClipLoader color="#e44848" size={70} />
+      </div>
+    );
   }
 
   if (error) {

@@ -1,8 +1,8 @@
 import { Modal as ResponsiveModal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 
-import Loader from "../Loader/Loader";
-import s from "../ModalLoader/mainModalStyles.module.css";
+import Error from "../ErrorComponents/ErrorComponents";
+import s from "../ModalError/mainModalStyles.module.css";
 
 const ModalError = ({ text, onClose }) => {
   return (
@@ -23,7 +23,7 @@ const ModalError = ({ text, onClose }) => {
       >
         X
       </button>
-      <Loader close={onClose} text={text} />
+      <Error close={onClose} text={text} />
     </ResponsiveModal>
   );
 };

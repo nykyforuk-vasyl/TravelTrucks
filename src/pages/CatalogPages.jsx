@@ -2,7 +2,7 @@ import HeaderSection from "../components/sections/Headers/HeaderSection.jsx";
 import Sidebar from "../components/sections/Sidebar/SidebarSection.jsx";
 import Campers from "../components/sections/Campers/Campers.jsx";
 import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton.jsx";
-import ModalLoader from "../components/ModalLoader/ModalLoader.jsx";
+import ClipLoader from "react-spinners/ClipLoader";
 import ModalError from "../components/ModalError/ModalError.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -50,7 +50,9 @@ const CatalogPages = () => {
         </div>
 
         {!isFirstLoad && isLoading && (
-          <ModalLoader text={"Loading list of campers"} />
+          <div className="flex h-screen items-center justify-center">
+            <ClipLoader color="#e44848" size={70} />
+          </div>
         )}
         {errorText ? (
           <ModalError text={errorText} onClose={() => setErrorText("")} />

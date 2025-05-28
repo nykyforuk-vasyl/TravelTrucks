@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import HomePage from "./pages/HomePage.jsx";
-import ModalLoader from "./components/ModalLoader/ModalLoader.jsx";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
 const CatalogPages = lazy(() => import("./pages/CatalogPages.jsx"));
@@ -16,7 +16,13 @@ const ReviewsSection = lazy(
 function App() {
   return (
     <div>
-      <Suspense fallback={<ModalLoader text={"TravelTrucks..."} />}>
+      <Suspense
+        fallback={
+          <div className="flex h-screen items-center justify-center">
+            <ClipLoader color="#e44848" size={70} />
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPages />} />
